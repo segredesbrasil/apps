@@ -1,0 +1,6 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "command": true,
+        "sw_vers": true
+    }
+}

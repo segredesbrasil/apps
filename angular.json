@@ -1,0 +1,52 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "app-gallery": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "gallery",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/app-gallery",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "ssr": { "entry": "src/server.ts" },
+            "prerender": {
+              "discoverRoutes": true,
+              "routesFile": "src/prerender-routes.txt"
+            },
+            "tsConfig": "tsconfig.app.json",
+            "polyfills": ["zone.js"],
+            "assets": ["src/assets"],
+            "styles": ["src/styles.css"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [{ "type": "initial", "maximumWarning": "1mb", "maximumError": "2mb" }],
+              "outputHashing": "all"
+            },
+            "development": { "optimization": false, "sourceMap": true }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": { "buildTarget": "app-gallery:build:production" },
+            "development": { "buildTarget": "app-gallery:build:development" }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

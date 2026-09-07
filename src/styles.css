@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+:root {
+  --paper: #f4f1eb;
+  --card: #e9e5dd;
+  --ink: #1d1d1b;
+  --muted: #77736c;
+  --line: #d4d0c7;
+  --signal: #ef563b;
+  --sans: 'DM Sans', sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); margin: 0; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--signal); color: var(--ink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  main { animation: enter .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+}
