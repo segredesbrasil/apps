@@ -16,37 +16,61 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "server": "src/main.server.ts",
-            "ssr": { "entry": "src/server.ts" },
+            "ssr": {
+              "entry": "src/server.ts"
+            },
             "prerender": {
               "discoverRoutes": true,
               "routesFile": "src/prerender-routes.txt"
             },
             "tsConfig": "tsconfig.app.json",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "assets": [
-             "src/assets",
+              "src/assets",
               {
-               "glob": "sitemap.xml",
-                 "input": "src",
-                 "output": "/"
-                 }
-              ],
-            "styles": ["src/styles.css"]
+                "glob": "sitemap.xml",
+                "input": "src",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
-              "budgets": [{ "type": "initial", "maximumWarning": "1mb", "maximumError": "2mb" }],
-              "outputHashing": "all"
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+                }
+              ],
+              "outputHashing": "all",
+              "optimization": {
+                "fonts": {
+                  "inline": false
+                }
+              }
             },
-            "development": { "optimization": false, "sourceMap": true }
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": { "buildTarget": "app-gallery:build:production" },
-            "development": { "buildTarget": "app-gallery:build:development" }
+            "production": {
+              "buildTarget": "app-gallery:build:production"
+            },
+            "development": {
+              "buildTarget": "app-gallery:build:development"
+            }
           },
           "defaultConfiguration": "development"
         }
