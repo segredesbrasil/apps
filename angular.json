@@ -23,7 +23,14 @@
             },
             "tsConfig": "tsconfig.app.json",
             "polyfills": ["zone.js"],
-            "assets": ["src/assets"],
+            "assets": [
+             "src/assets",
+              {
+               "glob": "sitemap.xml",
+                 "input": "src",
+                 "output": "/"
+                 }
+              ],
             "styles": ["src/styles.css"]
           },
           "configurations": {
